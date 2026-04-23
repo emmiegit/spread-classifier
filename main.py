@@ -13,4 +13,4 @@ def check_spread(spread):
 
 
 if __name__ == "__main__":
-    check_spread([10, 10, 10, 10, 10, 10])
+    check_spread([105, 185, 35, 40, 77, 102])

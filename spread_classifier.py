@@ -9,6 +9,10 @@ TEMPLATE_SPREADS = [
     ("flat", [1, 1, 1, 1, 1, 1]),
     ("staircase", normalize_spread([10, 20, 30, 40, 50, 60])),
     ("reverse staircase", normalize_spread([60, 50, 40, 30, 20, 10])),
+    ("fork", normalize_spread([0, 100, 0, 100, 0, 100])),
+    # Below 90 is "no speed"
+    ("mans", normalize_spread([80, 100, 80, 100, 80, 0])),
+    ("sentor", normalize_spread([100, 20, 100, 20, 100, 0])),
     # HP 50-80
     # ATK 200
     # DEF 50-80
@@ -17,10 +21,12 @@ TEMPLATE_SPREADS = [
     # SPE 90-110
     ("ideal atk", normalize_spread([80, 200, 80, 0, 80, 110])),
     ("ideal spa", normalize_spread([80, 0, 80, 200, 80, 110])),
+    # Cheezinator spreads are where one defense stat is below 50
+    ("cheezinator atk/def", normalize_spread([80, 200, 0, 0, 80, 110])),
+    ("cheezinator spa/def", normalize_spread([80, 0, 0, 200, 80, 110])),
+    ("cheezinator atk/spd", normalize_spread([80, 200, 80, 0, 0, 110])),
+    ("cheezinator spa/spd", normalize_spread([80, 0, 80, 200, 0, 110])),
 ]
-
-# below 90 is "no speed"
-# cheez is one defense state is below 50
 
 
 def calculate_error(spread1, spread2):
