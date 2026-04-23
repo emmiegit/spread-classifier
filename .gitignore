@@ -1,0 +1,7 @@
+# Artifacts
+*.py[cod]
+__pycache__/
+
+# Miscellaneous
+*~
+.*.sw?
