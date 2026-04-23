@@ -36,7 +36,7 @@ def compare_spreads(spread):
     for name, ideal_spread in IDEAL_SPREADS:
         total_error, error = calculate_error(spread, ideal_spread)
         fit = calculate_fit(total_error, len(spread))
-        results.push((name, total_error, error, fit))
+        results.append((name, total_error, error, fit))
 
     results.sort(key=lambda x: x[1])
     return results
