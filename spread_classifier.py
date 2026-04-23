@@ -39,6 +39,4 @@ def compare_spreads(spread):
         results.push((name, total_error, error, fit))
 
     results.sort(key=lambda x: x[1])
-    for name, total_error, error, fit in results:
-        print(f"{name} {total_error:.2f} {fit:.2f}")
-    print(f"Best match: {name} {fit * 100:.1f}% fit")
+    return results
