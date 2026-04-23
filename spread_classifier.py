@@ -4,7 +4,8 @@ def normalize_spread(stats):
     return [(stat / total) * count for stat in stats]
 
 
-IDEAL_SPREADS = [
+
+TEMPLATE_SPREADS = [
     ("flat", [1, 1, 1, 1, 1, 1]),
     ("staircase", normalize_spread([10, 20, 30, 40, 50, 60])),
     ("reverse staircase", normalize_spread([60, 50, 40, 30, 20, 10])),
@@ -33,8 +34,8 @@ def calculate_fit(total_error, count):
 
 def compare_spreads(spread):
     results = []
-    for name, ideal_spread in IDEAL_SPREADS:
-        total_error, error = calculate_error(spread, ideal_spread)
+    for name, template_spread in TEMPLATE_SPREADS:
+        total_error, error = calculate_error(spread, template_spread)
         fit = calculate_fit(total_error, len(spread))
         results.append((name, total_error, error, fit))
 
