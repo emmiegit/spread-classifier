@@ -38,5 +38,5 @@ def compare_spreads(spread):
         fit = calculate_fit(total_error, len(spread))
         results.append((name, total_error, error, fit))
 
-    results.sort(key=lambda x: x[1])
+    results.sort(key=lambda x: x[3])
     return results
