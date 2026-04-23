@@ -27,7 +27,7 @@ def calculate_error(spread1, spread2):
     return sum(errors), errors
 
 
-def calculate_confidence(total_error, count):
+def calculate_fit(total_error, count):
     return (2 * count - total_error) / (2 * count)
 
 
@@ -35,10 +35,10 @@ def compare_spreads(spread):
     results = []
     for name, ideal_spread in IDEAL_SPREADS:
         total_error, error = calculate_error(spread, ideal_spread)
-        confidence = calculate_confidence(spread, len(spread))
-        results.push((name, total_error, error, confidence))
+        fit = calculate_fit(spread, len(spread))
+        results.push((name, total_error, error, fit))
 
     results.sort(key=lambda x: x[1])
-    for name, total_error, error, confidence in results:
-        print(f"{name} {total_error:.2f} {confidence:.2f}")
-    print(f"Best match: {name} {confidence * 100:.1f}")
+    for name, total_error, error, fit in results:
+        print(f"{name} {total_error:.2f} {fit:.2f}")
+    print(f"Best match: {name} {fit * 100:.1f}% fit")
